@@ -1303,7 +1303,7 @@ class VertexLLM(VertexBase):
 class ModelResponseIterator:
     def __init__(self, streaming_response, sync_stream: bool):
         self.streaming_response = streaming_response
-        self.chunk_type: Literal["valid_json", "accumulated_json"] = "valid_json"
+        self.chunk_type: Literal["valid_json", "accumulated_json"] = "accumulated_json"
         self.accumulated_json = ""
         self.sent_first_chunk = False
 
