@@ -1303,7 +1303,7 @@ class VertexLLM(VertexBase):
 class ModelResponseIterator:
     def __init__(self, streaming_response, sync_stream: bool):
         self.streaming_response = streaming_response
-        self.chunk_type: Literal["valid_json", "accumulated_json"] = "accumulated_json"
+        self.chunk_type: Literal["valid_json", "accumulated_json"] = "valid_json"
         self.accumulated_json = ""
         self.sent_first_chunk = False
 
@@ -1405,6 +1405,7 @@ class ModelResponseIterator:
         try:
             _data = json.loads(self.accumulated_json)
             self.accumulated_json = ""  # reset after successful parsing
+            self.sent_first_chunk = False
             return self.chunk_parser(chunk=_data)
         except json.JSONDecodeError:
             # If it's not valid JSON yet, continue to the next event
