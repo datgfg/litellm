@@ -1534,6 +1534,7 @@ class ModelResponseIterator:
 
     def _common_chunk_parsing_logic(self, chunk: str) -> GenericStreamingChunk:
         chunk = chunk.replace("data:", "")
+        chunk = chunk.strip()
         if len(chunk) > 0:
             """
             Check if initial chunk valid json
