@@ -16,6 +16,7 @@ else:
 def map_finish_reason(
     finish_reason: str,
 ):  # openai supports 5 stop sequences - 'stop', 'length', 'function_call', 'content_filter', 'null'
+    print(f'''finish_reason: {finish_reason}''')
     # anthropic mapping
     if finish_reason == "stop_sequence":
         return "stop"
