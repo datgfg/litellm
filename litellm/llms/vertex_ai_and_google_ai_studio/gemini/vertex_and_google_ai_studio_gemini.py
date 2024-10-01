@@ -1421,6 +1421,7 @@ class ModelResponseIterator:
         try:
             chunk = chunk.replace("data:", "")
             print(f'xxxxxx {chunk} {len(chunk)}')
+            chunk = chunk.strip()
             if len(chunk) > 0:
                 """
                 Check if initial chunk valid json
