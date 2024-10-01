@@ -1420,7 +1420,6 @@ class ModelResponseIterator:
     def _common_chunk_parsing_logic(self, chunk: str) -> GenericStreamingChunk:
         try:
             chunk = chunk.replace("data:", "")
-            print(f'xxxxxx {chunk} {len(chunk)}')
             chunk = chunk.strip()
             if len(chunk) > 0:
                 """
