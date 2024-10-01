@@ -1447,8 +1447,8 @@ class ModelResponseIterator:
         try:
             chunk = self.response_iterator.__next__()
         except StopIteration:
-            if self.chunk_type == "accumulated_json" and self.accumulated_json:
-                return self.handle_accumulated_json_chunk(chunk="")
+            # if self.chunk_type == "accumulated_json" and self.accumulated_json:
+            #     return self.handle_accumulated_json_chunk(chunk="")
             raise StopIteration
         except ValueError as e:
             raise RuntimeError(f"Error receiving chunk from stream: {e}")
